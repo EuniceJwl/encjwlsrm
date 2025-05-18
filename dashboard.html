@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Cat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #b8c0ff;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background-color: #231942;
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        .sidebar h1 {
+            margin-bottom: 30px;
+            color: #fff;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #f4c2c2;
+            color: #231942;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .sidebar a svg {
+            margin-right: 15px;
+            width: 25px;
+            height: 25px;
+            color: #fff;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: #9f86c0;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .header h2 {
+            color: #2a4d96;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .header .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .profile span {
+            margin-right: 15px;
+            color: #2a4d96;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .header .profile img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #80ced7;
+            display: none;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            color: #2a4d96;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: #2a4d96;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .logout-button {
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .logout-button button {
+            background-color: #b8c0ff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            width: 250px;
+            font-size: 1.2rem;
+        }
+
+        .logout-button button:hover {
+            background-color: #9f86c0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+
+            .sidebar h1 {
+                font-size: 2rem;
+            }
+
+            .sidebar ul {
+                margin-bottom: 20px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header h2 {
+                margin-bottom: 20px;
+                font-size: 2.5rem;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            .info-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .info-card p {
+                font-size: 2.5rem;
+            }
+
+            .logout-button {
+                margin-top: 20px;
+            }
+
+            .logout-button button {
+                width: 100%;
+            }
+        }
+
+        nav {
+            background: #231942;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #f4c2c2;
+            color: #231942;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Cat Dashboard</h1>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="sidebar-link-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.5M4.5 14.25h2.625" />
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="sidebar-link-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 6v12m-3-2.818l.879.53a4.5 4.5 0 015.822 0l.879-.53m-3 0V3m-3 3.375a1.625 1.625 0 11-3.25 0v-.036A3.037 3.037 0 0112 6.608v-.3m0 0V8.25m0 0H9.75m2.25-.75h3.75" />
+                        </svg>
+                        Breeds
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="sidebar-link-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                        Care
+                    </a>
+                </li>
+            </ul>
+            <div class="logout-button">
+                <button>Logout</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h2>Welcome to the Cat Dashboard!</h2>
+                <div class="profile">
+                </div>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Total Cats</h3>
+                    <p>100+</p>
+                </div>
+                <div class="info-card">
+                    <h3>Most Popular Breed</h3>
+                    <p>Maine Coon</p>
+                </div>
+                <div class="info-card">
+                    <h3>Average Lifespan</h3>
+                    <p>12-15 years</p>
+                </div>
+            </div>
+            <div class="courses-section">
+                <h2>Cat Breeds</h2>
+                <div class="course-cards">
+                    <div class="course-card">
+                        <h3>Maine Coon</h3>
+                        <p>Gentle giants with flowing coats.</p>
+                    </div>
+                    <div class="course-card">
+                        <h3>Siamese</h3>
+                        <p>Intelligent and vocal companions.</p>
+                    </div>
+                    <div class="course-card">
+                        <h3>Persian</h3>
+                        <p>Sweet-natured and luxurious cats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
